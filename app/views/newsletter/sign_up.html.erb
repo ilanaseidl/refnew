@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <body>
   <div class="container">
     <img src="https://github.com/ilanaseidl/refnew/blob/master/app/assets/images/home.png?raw=true" class=".img-fluid. max-width: 100%; and height: auto;" alt="Welcome Image"></img>
@@ -17,4 +19,12 @@
       </div>
   </div>
 </body>
+=======
+  <div class="form">
+  <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
+    <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
+    <%= form.submit %>
+  <% end %>
+</div>
+>>>>>>> 180646c3121e1c3fad790a5a7931c871ad134365
 </html>
