@@ -1,7 +1,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+  </style>
+</head>
 <body>
   <div class="container">
     <img src="https://github.com/ilanaseidl/refnew/blob/master/app/assets/images/home.png?raw=true" class=".img-fluid. max-width: 100%; and height: auto;" alt="Welcome Image"></img>
@@ -19,12 +52,5 @@
       </div>
   </div>
 </body>
-=======
-  <div class="form">
-  <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-    <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
-    <%= form.submit %>
-  <% end %>
-</div>
->>>>>>> 180646c3121e1c3fad790a5a7931c871ad134365
+
 </html>
