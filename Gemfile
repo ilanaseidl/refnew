@@ -37,11 +37,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-<<<<<<< HEAD
-   gem 'sqlite3', '1.4.1'
-=======
   gem 'sqlite3', '1.4.1'
->>>>>>> b0e6e5d4bc2d2b84ccf8d0186eaaf8ed6b8a63d0
 end
 
 group :development do
