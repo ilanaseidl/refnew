@@ -33,16 +33,17 @@
     <div class="form-group" "form-control form-control-lg">
       <label for="email" class="input-group input-group-lg" style="font-size:large;"><strong>Sign Up Here</strong></label>
       <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 50%>
-      <div input="submit" value="Submit" class="btn-primary btn-lg" style="width:100px; height:auto;">
+      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 50%, >
+      <div input="submit" value="Submit" class="btn-primary btn-lg" style="width:60px;height:30px;">
         <%= form.submit %>
         <% end %>
       </div>
   </div>
 
 <footer class="container-fluid text-center">
-  <pstyle="font-size:100px;color:black;">Refer your friends!</p>
+  <p style="font-size:100px;color:black;">Refer your friends!</p>
 </footer>
 
 </body>
 </html>
+
