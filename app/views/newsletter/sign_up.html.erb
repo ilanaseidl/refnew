@@ -2,8 +2,8 @@
 <html lang="en">
 <body>
   <div class="container">
-    <div class="form-group">
-      <label for="email" class="input-group input-group-lg"><strong>Please Enter Your Email: </strong></label>
+    <div class="form-group" "form-control form-control-lg>
+      <label for="email" class="input-group input-group-lg"><strong>Sign Up Here</strong></label>
       <span class="input-group-addon">Your Email</span>
       <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
       <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
