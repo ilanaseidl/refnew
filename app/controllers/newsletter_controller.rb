@@ -6,6 +6,7 @@ class NewsletterController < ApplicationController
 
   def submit
     @id = params[:id]
+    @id = 1 if params[:id] == nil
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
@@ -15,7 +16,9 @@ class NewsletterController < ApplicationController
       #Updates the referrals table
       @referral = Referral.new(referrer: @id, referredby_id: @user.id)
       @referral.save
-      
+
+      puts(@id)
+      puts(User.find(@id))
       #Updates the referrer's counter
       referrerCount = User.find(@id).counter
       referrerCount += 1
