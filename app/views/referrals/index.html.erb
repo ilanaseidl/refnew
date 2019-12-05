@@ -73,12 +73,19 @@
             <td><%= user.email %></td>
             <td><%= user.counter %></td>
             <td><%=
-                if @referral.find_by(referred: user.id) == nil
-                  "none"
+                @referral = Referral.find_by(referred: user.id)
+                if @referral
+                    User.find(@referral.referrer).email
                 else
-                  @referrerId = @referral.find_by(referred: user.id).referrer
-                  User.find(@referrerId).email
+                  "none"
                 end
+
+                #if @referral.find_by(referred: user.id) == nil
+              #    "none"
+              #  else
+                #  @referrerId = @referral.find_by(referred: user.id).referrer
+              #    User.find(@referrerId).email
+              #  end
             %></td>
           </tr>
           <% end %>
