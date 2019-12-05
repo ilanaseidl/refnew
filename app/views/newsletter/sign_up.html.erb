@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-  <div class="form">
-  <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-    <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
-    <%= form.submit %>
-  <% end %>
+  <div class="container">
+    <div class="form-group">
+      <label for="email" class="input-group input-group-lg"><strong>Please Enter Your Email: </strong></label>
+      <span class="input-group-addon">Your Email</span>
+      <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
+      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
+      <%= form.submit %>
+      <% end %>
+  </div>
 </body>
 </html>
