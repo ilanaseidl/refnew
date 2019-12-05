@@ -25,12 +25,12 @@
     <img src="https://github.com/ilanaseidl/refnew/blob/master/app/assets/images/home.png?raw=true" class=".img-fluid. max-width: 100%; and height: auto;" alt="Welcome Image"></img>
   </div>
 </div>
-  <div class="container">
+  <div class="container-fluid text-center">
+
     <div class="form-group" "form-control form-control-lg">
       <label for="email" class="input-group input-group-lg"><strong>Sign Up Here</strong></label>
-      <span class="input-group-addon">Your Email</span>
       <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
+      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 100%>
       <div input="submit" value="Submit" class="btn-primary btn-lg">
         <%= form.submit %>
         <% end %>
