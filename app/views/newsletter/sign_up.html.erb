@@ -1,4 +1,22 @@
 <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-  <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
-  <%= form.submit %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        you from signing up:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>

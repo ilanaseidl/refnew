@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  referrer: 1
+  referred: 1
+  referredby_id: 1
+
+two:
+  referrer: 1
+  referred: 1
+  referredby_id: 1

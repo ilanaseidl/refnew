@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_052545) do
+ActiveRecord::Schema.define(version: 2019_12_05_053803) do
+
+  create_table "referrals", force: :cascade do |t|
+    t.integer "referrer"
+    t.integer "referred"
+    t.integer "referredby_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
