@@ -22,4 +22,4 @@ default_referrals = [{:referrer => 1, :referred => 2},
 default_referrals.each do |referral|
 	Referral.create!(referral)
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') #if Rails.env.development?
