@@ -1,15 +1,14 @@
 class NewsletterController < ApplicationController
+
   def sign_up
     @user = User.new
     @id = params[:id]
   end
 
   def submit
-    @id = params[:id]
+    #@id = params[:id]
 
-    referrer_id = params[:id]
-
-    @id = 1 if params[:id] == nil
+  #  @id = 1 if params[:id] == nil
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
@@ -19,16 +18,13 @@ class NewsletterController < ApplicationController
       #Updates the referrals table
       #@referral = Referral.new(referrer: @id, referredby_id: @user.id)
 
-      if referrer_id
+      if params[:id]
         @referral = Referral.new(referrer: params[:id], referred: @user.id)
         @referral.save!
 
-        puts(@id)
-        puts(User.find(@id))
         #Updates the referrer's counter
-
-        referrer_user = User.find(referrer_id)
-        referrer_user.update(counter: referrer_user.counter+1)
+        @referrer_user = User.find(params[:id])
+        @referrer_user.update(counter: @referrer_user.counter+1)
       end
   #    referrerCount = User.find(@id).counter
   #    referrerCount += 1

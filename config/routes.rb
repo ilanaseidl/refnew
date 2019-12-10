@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  resources :referrals, only: [:index]
+
   root 'newsletter#sign_up'
 
   get 'referrals/index', to: 'referrals#index'
