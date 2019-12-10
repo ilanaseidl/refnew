@@ -1,12 +1,14 @@
 class NewsletterController < ApplicationController
+
   def sign_up
     @user = User.new
     @id = params[:id]
   end
 
   def submit
-    @id = params[:id]
-    @id = 1 if params[:id] == nil
+    #@id = params[:id]
+
+  #  @id = 1 if params[:id] == nil
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
@@ -14,16 +16,21 @@ class NewsletterController < ApplicationController
       cookies[:h_email] = {value: @user.email}
 
       #Updates the referrals table
-      @referral = Referral.new(referrer: @id, referredby_id: @user.id)
-      @referral.save
+      #@referral = Referral.new(referrer: @id, referredby_id: @user.id)
 
-      puts(@id)
-      puts(User.find(@id))
-      #Updates the referrer's counter
-      referrerCount = User.find(@id).counter
-      referrerCount += 1
-      referrer = User.find(@id)
-      referrer.update(counter: referrerCount)
+      if params[:id]
+        @referral = Referral.new(referrer: params[:id], referred: @user.id)
+        @referral.save!
+
+        #Updates the referrer's counter
+        @referrer_user = User.find(params[:id])
+        @referrer_user.update(counter: @referrer_user.counter+1)
+      end
+  #    referrerCount = User.find(@id).counter
+  #    referrerCount += 1
+
+  #    referrer = User.find(@id)
+  #    referrer.update(counter: referrerCount)
 
 
 
