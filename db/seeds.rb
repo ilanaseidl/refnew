@@ -18,7 +18,7 @@ default_referrals.each do |referral|
 end
 
 1000.times do
-User.find_or_create_by(
+User.create!(
   email: Faker::Internet.unique.email,
   counter: Faker::Config.random)
 end
