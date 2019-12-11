@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <div class="form">
   <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
@@ -7,4 +7,40 @@
     <%= form.submit %>
   <% end %>
 </div>
+</html> -->
+
+<!-- <div class="jumbotron text-center">
+  <h1>Referral Tracker</h1>
+  <p>Start your prelaunch referral campaign to gather thousands of emails before you even launch your website.</p>
+    <div class="input-group">
+      <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
+      <%= form.text_field :email, :placeholder => "Enter Email", class: 'form-control'%>
+      <%= form.submit %>
+      </div>
+    </div>
+<% end %> -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <div class = "row">
+      <div class= "col-lg">
+        <div class="jumbotron text-center">
+          <h1>ReferralTrkr</h1>
+          <h3>Start your prelaunch referral campaign to gather thousands of emails before you even launch your e-commerce website.</h3>
+        </div>
+          <div class = "col-sm-4">
+            <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
+            <%= form.text_field :email, :placeholder => "Enter Email", "size" => 20%>
+            <%= form.submit %>
+            <% end %>
+            <small>* We promise no spam, cause we hate spam</small>
+          </div>
+      <footer>
+        <p>
+          Powered by
+          <p> RefTrkr
+        </p>
+      </footer>
+    </div>
+  </div>
 </html>
