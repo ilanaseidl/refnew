@@ -1,32 +1,39 @@
 ActiveAdmin.register_page "Dashboard" do
-  menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
-  content title: proc { I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+  content :title => proc{ I18n.t("active_admin.dashboard") } do
+    @users = User.all
+    @referrals = Referral.all
+    table do
+      thead do
+        tr do
+          %w[ID Email Counter ReferredBy].each &method(:th)
+        end
+      end
+      tbody do
+        @users.each do |user|
+          tr do
+            td do
+              user.id
+            end
+            td do
+              user.email
+            end
+            td do
+              user.counter
+            end
+            td do
+              @referral = Referral.find_by(referred: user.id)
+              if @referral
+                  User.find(@referral.referrer).email
+              else
+                "none"
+              end
+            end
+          end
+        end
       end
     end
-
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
+  end
 end
+
+  # https://gorails.com/episodes/using-activeadmin-to-build-an-admin-ui
