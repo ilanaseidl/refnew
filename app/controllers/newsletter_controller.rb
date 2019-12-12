@@ -4,16 +4,16 @@ class NewsletterController < ApplicationController
   def sign_up
     @user = User.new
     @id = params[:id]
+    @ip = params[:current_sign_in_ip]
   end
 
   def submit
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
-
-    if @user.save
+    if @user.save || params[:current_sign_in_ip]
       cookies[:id] = @user.id
-      
+
       if params[:id]
         @referral = Referral.new(referrer: params[:id], referred: @user.id)
         @referral.save!
@@ -23,8 +23,9 @@ class NewsletterController < ApplicationController
         @referrer_user.update(counter: @referrer_user.counter+1)
       end
 
-      #Directs to succes page
+      #Directs to success page
       redirect_to "/newsletter/success/#{@user.id}"
+
     else
       logger.info("Error saving user with email, #{email}")
       redirect_to root_path, alert: 'Something went wrong!'
