@@ -1,7 +1,7 @@
 class NewsletterController < ApplicationController
   before_action :check_session, only: :sign_up
 
-  def sign_up
+  def sign_up #allows for user to sign up and records their id and ip
     @user = User.new
     @id = params[:id]
     @ip = params[:current_sign_in_ip]
@@ -11,7 +11,7 @@ class NewsletterController < ApplicationController
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
-    if @user.save || params[:current_sign_in_ip]
+    if @user.save || params[:current_sign_in_ip] #check to see if already current user
       cookies[:id] = @user.id
 
       if params[:id]
