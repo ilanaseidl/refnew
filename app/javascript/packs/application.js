@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import "controllers"
+
 
 //= require jquery
 //= require bootstrap-sprockets

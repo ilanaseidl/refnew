@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <html lang="en">
 
   <p id="notice"><%= notice %></p>
@@ -125,8 +126,25 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5">Share with friends. Grow your rewards!</h1>
         </div>
-        <div class="col-xl-9 mx-auto">
-          <input class="form-control" value="<%= "http://refnew.herokupp.com/newsletter/sign_up/#{params[:id]}" %>"</input>
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="input-group">
+                <div data-controller="clipboard">
+                <input class="form-control" value="<%= "http://refnew.herokupp.com/newsletter/sign_up/#{params[:id]}" %>" data-target="clipboard.source"</input>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" data-action="clipboard#copy">Copy to Clipboard</button>
+                </span>
+            </div>
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h4 class="mb-5" style="color:white">Share your unique link via email or social networks and earn prizes for each friend who signs up!</h4>
+            <div class="row">
+              <div class="col-xl-9 mx-auto">
+                <a href="http://facebook.com"><i class="fa fa-facebook m-auto" style="font-size: 210%;color: white;"></i>
+                <a href="http://instagram.com"><i class="fa fa-instagram m-auto" style="font-size: 210%;color:white;"></i>
+                <a href="http://twitter.com"><i class="fa fa-twitter m-auto" style="font-size: 210%;color: white;"></i>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -136,19 +154,56 @@
     <div class = "container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="fa fa-users m-auto text-primary"></i>
-
+          <div class="d-flex justify-content-center">
+          <h3 class="text-center">
+            <h4>
+              <strong>7 friends</strong>
+            <span>have joined so far! Keep going.</span>
+            </h4>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
       </div>
     </div>
-  </section>
+  </div>
+      <div class="row">
+        <div class="d-flex justify-content-center">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fa fa-gift m-auto text-primary"></i>
+            </div>
+            <h3>5</h3>
+            <p class="lead mb-0">Prize 1</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
 
-  <footer>
+              <i class="fa fa-gift m-auto text-primary"></i>
+            </div>
+            <h3>10</h3>
+            <p class="lead mb-0">Prize 2</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fa fa-gift m-auto text-primary"></i>
+            </div>
+            <h3>15</h3>
+            <p class="lead mb-0">Prize 3</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <section class ="footer">
     <a href="https://github.com/ilanaseidl/refnew" style="font-sizeM 24px;">Learn more.</a>
     <br>
     <br>
-  </footer>
+  </section>
 
 
 </html>

@@ -37,4 +37,10 @@ class NewsletterController < ApplicationController
       redirect_to "/newsletter/success/#{@user.id}"
     end
   end
+
+  def progress
+    User.find(params[:id]).each do
+      @user.counter
+    end
+  end
 end
