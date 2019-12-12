@@ -1,8 +1,11 @@
 require 'faker'
 
-default_users = [{:email => 'a@a.com', :counter => 3},
+default_users = [{ :email => 'a@a.com', :counter => 3},
 	{:email => 'ab@a.com', :counter => 33},
-	{ :email => 'ac@a.com', :counter => 34}
+	{ :email => 'ac@a.com', :counter => 34},
+	{:email => 'ab@email.com', :counter => 1},
+	{ :email => 'ac@email.com', :counter => 20},
+	{ :email => 'ac33@email.com', :counter => 7},
 ]
 
 default_users.each do |user|
@@ -24,4 +27,3 @@ User.create!(
 end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
