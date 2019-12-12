@@ -12,6 +12,7 @@ class NewsletterController < ApplicationController
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
+
     if @user.save
       cookies[:h_email] = {value: @user.email}
 
@@ -42,4 +43,5 @@ class NewsletterController < ApplicationController
   def progress
     progress = referrer_user.count_of_referrals
   end
+
 end
