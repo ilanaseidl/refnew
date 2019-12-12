@@ -1,5 +1,4 @@
 class NewsletterController < ApplicationController
-  before_action :check_session, only: :sign_up
 
   def sign_up #allows for user to sign up and records their id and ip
     @user = User.new
@@ -41,4 +40,9 @@ class NewsletterController < ApplicationController
     end
   end
 
+  def progress
+    User.find(params[:id]).each do
+      @user.counter
+    end
+  end
 end
