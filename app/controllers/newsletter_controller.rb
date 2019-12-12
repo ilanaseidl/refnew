@@ -1,5 +1,4 @@
 class NewsletterController < ApplicationController
-  before_action :check_session, only: :sign_up
 
   def sign_up
     @user = User.new
@@ -12,7 +11,7 @@ class NewsletterController < ApplicationController
 
     if @user.save
       cookies[:id] = @user.id
-      
+
       if params[:id]
         @referral = Referral.new(referrer: params[:id], referred: @user.id)
         @referral.save!
