@@ -8,6 +8,7 @@
     "@rails/webpacker": "^4.2.0",
     "serialize-javascript": "2.1.2",
     "startbootstrap-stylish-portfolio": "^5.0.7",
+    "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
