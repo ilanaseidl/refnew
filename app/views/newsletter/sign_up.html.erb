@@ -135,8 +135,9 @@
         </div>
         <div class="col-xl-9 mx-auto">
           <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-            <%= form.text_field :email, :placeholder => "Enter Email"%>
-            <%= form.submit "Step Inside!"%>
+            <%= render 'shared/error_messages' %>
+              <%= form.text_field :email, :placeholder => "Enter Email"%>
+              <%= form.submit "Step Inside!"%>
             <% end %>
         </div>
       </div>
