@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,46 +9,183 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <style>
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #6c757d;
-      padding: 10px;
-      font-size: x-large;
-    }
-    .center-block {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .form-group-fluid {
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em
-    }
-  </style>
-</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<html lang="en">
 
-<body>
-  <div class="container-fluid">
-    <img src="https://github.com/ilanaseidl/refnew/blob/master/app/assets/images/home.png?raw=true" class=".img-fluid. max-width: 300%; height:auto; min-width: 10%; center-block" alt="Welcome Image"></img>
-  </div>
-</div>
-  <div class="container-fluid text-center">
+  <p id="notice"><%= notice %></p>
+  <head>
+      <style>
+        body {
+          background: url('') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+          -o-background-size: cover;
+          background-color: white;
 
-    <div class="form-group-fluid" "form-control form-control-lg">
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          }
 
-      <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
-      <%= form.text_field :email, :placeholder => "Enter Email", "size" => 100%>
-      <div input="submit" value="Submit" >
-        <%= form.submit %>
-        <% end %>
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 700;
+
+        }
+
+        body::after {
+          content: "";
+          background: url("https://github.com/olivianye1/ROTSee/blob/master/app/views/cadets/ROTSee2.jpg?raw=true");
+          opacity: 0.2;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: -1;
+}
+
+        /* Container holding the image and the text */
+        .container {
+          position: relative;
+          text-align: center;
+          color: black;
+        }
+
+        /* Centered text */
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .front-page {
+
+          margin-bottom: 25px;
+        }
+
+        .features-icons {
+          padding-top: 7rem;
+          padding-bottom: 7rem;
+        }
+
+        .features-icons .features-icons-item {
+          max-width: 20rem;
+        }
+
+        .features-icons .features-icons-item .features-icons-icon {
+          height: 7rem;
+        }
+
+        .features-icons .features-icons-item .features-icons-icon i {
+          font-size: 4.5rem;
+        }
+
+        .features-icons .features-icons-item:hover .features-icons-icon i {
+          font-size: 5rem;
+        }
+
+        header.masthead {
+          position: relative;
+          background: url("https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-landing-page/master/img/bg-masthead.jpg") no-repeat center center;
+          background-color: #343a40;
+          background-size: cover;
+          padding-top: 8rem;
+          padding-bottom: 8rem;
+        }
+
+        header.masthead .overlay {
+          position: absolute;
+          background-color: #212529;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0.3;
+        }
+
+        header.masthead h1 {
+          font-size: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          header.masthead {
+            padding-top: 12rem;
+            padding-bottom: 12rem;
+          }
+          header.masthead h1 {
+            font-size: 3rem;
+          }
+        }
+
+        footer.footer {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+      </style>
+  </head>
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Track Referrals. Watch Your Business Grow.</h1>
+        </div>
+        <div class="col-xl-9 mx-auto">
+          <%= form_with(model: @user, local: true, url: "/newsletter/sign_up/#{@id}") do |form| %>
+            <%= form.text_field :email, :placeholder => "Enter Email"%>
+            <%= form.submit "Step Inside!"%>
+            <% end %>
+        </div>
       </div>
-  </div>
+    </div>
+  </header>
 
-<footer class="container-fluid text-center">
-  <p style="font-size:100px;color:black;">Refer your friends!</p>
-</footer>
+  <section class="features-icons bg-light text-center">
+    <div class = "container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fa fa-users m-auto text-primary"></i>
+            </div>
+            <h3>Viral Growth</h3>
+            <p class="lead mb-0">All you need to get started.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fa fa-check-square m-auto text-primary"></i>
+            </div>
+            <h3>Admin Dashboard</h3>
+            <p class="lead mb-0">Track word of mouth.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fa fa-angle-double-up m-auto text-primary"></i>
+            </div>
+            <h3>Easy to Use</h3>
+            <p class="lead mb-0">Launch your campaign easily.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</body>
+  <footer>
+    <a href="https://github.com/ilanaseidl/refnew" style="font-sizeM 24px;">Learn more.</a>
+    <br>
+    <br>
+  </footer>
+
+
 </html>
+
