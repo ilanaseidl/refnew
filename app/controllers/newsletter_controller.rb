@@ -6,42 +6,35 @@ class NewsletterController < ApplicationController
   end
 
   def submit
-    #@id = params[:id]
-
-  #  @id = 1 if params[:id] == nil
     email = params[:user][:email]
     @user = User.new(email: email, counter: 0)
 
     if @user.save
-      cookies[:h_email] = {value: @user.email}
-
-      #Updates the referrals table
-      #@referral = Referral.new(referrer: @id, referredby_id: @user.id)
+      cookies[:id] = @user.id
 
       if params[:id]
         @referral = Referral.new(referrer: params[:id], referred: @user.id)
         @referral.save!
 
-        #Updates the referrer's counter
+        #Update referrer's counter
         @referrer_user = User.find(params[:id])
         @referrer_user.update(counter: @referrer_user.counter+1)
       end
-  #    referrerCount = User.find(@id).counter
-  #    referrerCount += 1
-
-  #    referrer = User.find(@id)
-  #    referrer.update(counter: referrerCount)
-
-
 
       #Directs to succes page
       redirect_to "/newsletter/success/#{@user.id}"
     else
       logger.info("Error saving user with email, #{email}")
-      redirect_to "/sign_up/#{@id}", alert: 'Something went wrong!'
+      redirect_to root_path, alert: 'Something went wrong!'
     end
   end
 
   def success
+  end
+
+  def check_session
+    if cookies[:id] && User.where(id: cookies[:id]).any? && !admin_user
+      redirect_to "/newsletter/success/#{@user.id}"
+    end
   end
 end
