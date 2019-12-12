@@ -26,22 +26,20 @@ class NewsletterController < ApplicationController
         @referrer_user = User.find(params[:id])
         @referrer_user.update(counter: @referrer_user.counter+1)
       end
-  #    referrerCount = User.find(@id).counter
-  #    referrerCount += 1
-
-  #    referrer = User.find(@id)
-  #    referrer.update(counter: referrerCount)
-
 
 
       #Directs to succes page
       redirect_to "/newsletter/success/#{@user.id}"
     else
       logger.info("Error saving user with email, #{email}")
-      redirect_to "/sign_up/#{@id}", alert: 'Something went wrong!'
+      redirect_to root_path, alert: 'Something went wrong!'
     end
   end
 
   def success
+  end
+
+  def progress
+    progress = referrer_user.count_of_referrals
   end
 end
